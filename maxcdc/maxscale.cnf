@@ -1,0 +1,40 @@
+# The Replication Proxy service
+[replication-service]
+type=service
+router=binlogrouter
+server_id=4000
+master_id=3000
+filestem=binlog
+user=maxuser
+passwd=maxpwd
+
+# The Avro conversion service
+[avro-service]
+type=service
+router=avrorouter
+source=replication-service
+
+# The listener for the replication-service
+[replication-listener]
+type=listener
+service=replication-service
+protocol=MySQLClient
+port=3306
+
+# The client listener for the avro-service
+[avro-listener]
+type=listener
+service=avro-service
+protocol=CDC
+port=4001
+
+# The MaxAdmin service and listener for MaxScale administration
+[CLI]
+type=service
+router=cli
+
+[CLI Listener]
+type=listener
+service=CLI
+protocol=maxscaled
+socket=default
