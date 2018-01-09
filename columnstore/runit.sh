@@ -12,12 +12,9 @@ docker exec -it pm2 /sbin/sshd
 
 docker cp Columnstore.xml.rpmsave pm1:/usr/local/mariadb/columnstore/etc
 docker exec -it pm1 /usr/local/mariadb/columnstore/bin/postConfigure -u
-<<<<<<< HEAD
 
 docker cp dwuser.sql um1:/root
 docker cp maxuser.sql um1:/root
 
 docker exec -it um1 mcsmysql < /root/dwuser.sql
 docker exec -it um1 mcsmysql < /root/maxsql.sql
-=======
->>>>>>> eb2bdcc996622819d71e6dc0cb3ba05a426c8b2c
