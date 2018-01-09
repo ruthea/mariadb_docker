@@ -1,0 +1,15 @@
+FROM centos:latest
+run yum -y update
+run yum -y install wget net-tools openssh
+WORKDIR /root
+run wget https://downloads.mariadb.com/ColumnStore/1.1.2/centos/x86_64/7/mariadb-columnstore-1.1.2-1-centos7.x86_64.rpm.tar.gz
+run tar -xvzf maria*.tar.gz
+run yum -y install mariadb*
+run ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
+run chmod 700 ~/.ssh
+run chmod 600 ~/.ssh/*
+run cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+run yum -y install openssh-server openssh-clients initscripts
+RUN mkdir /var/run/sshd
+RUN /usr/bin/ssh-keygen -A 
+RUN /usr/sbin/sshd -D &

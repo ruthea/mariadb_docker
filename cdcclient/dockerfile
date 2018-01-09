@@ -1,0 +1,14 @@
+FROM centos:latest
+RUN yum -y update
+RUN yum -y install wget
+RUN yum -y install epel-release
+WORKDIR /root
+######RUN wget https://downloads.mariadb.com/MaxScale/2.1.13/rhel/7/x86_64/maxscale-2.1.13-1.rhel.7.x86_64.rpm
+RUN wget https://downloads.mariadb.com/Data-Adapters/mariadb-streaming-data-adapters/cdc-data-adapter/1.1.2/centos-7/mariadb-columnstore-maxscale-cdc-adapters-1.1.2-1-x86_64-centos7.rpm
+RUN wget https://downloads.mariadb.com/Data-Adapters/mariadb-columnstore-api/1.1.2/centos/x86_64/7/mariadb-columnstore-api-1.1.2-1-x86_64-centos7.rpm
+RUN wget https://downloads.mariadb.com/Connectors/maxscale-cdc-connector/centos-7/maxscale-cdc-connector-2.2.0-1-x86_64-centos7.rpm
+######RUN yum -y install maxscale-2.1.13-1.rhel.7.x86_64.rpm
+RUN yum -y install maxscale-cdc-connector-2.2.0-1-x86_64-centos7.rpm
+RUN yum -y install mariadb-columnstore-api-1.1.2-1-x86_64-centos7.rpm 
+RUN yum -y install mariadb-columnstore-maxscale-cdc-adapters-1.1.2-1-x86_64-centos7.rpm
+#COPY maxscale.cnf /etc/maxscale.cnf
