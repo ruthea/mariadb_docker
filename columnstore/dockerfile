@@ -13,3 +13,7 @@ run yum -y install openssh-server openssh-clients initscripts
 RUN mkdir /var/run/sshd
 RUN /usr/bin/ssh-keygen -A 
 RUN /usr/sbin/sshd -D &
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb2bdcc996622819d71e6dc0cb3ba05a426c8b2c
