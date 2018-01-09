@@ -14,3 +14,6 @@ docker build . -t mariadb
 
 cd cdcclient
 docker build . -t cdcclient
+
+cd maxcdc
+docker build . -t maxcdc
