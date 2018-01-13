@@ -1,4 +1,4 @@
-docker network create mynet123
+docker network create --subnet=172.18.0.0/16 mynet123
 
 docker run --net mynet123 --name um1 -d -it --ip 172.18.0.11 columnstore /bin/bash
 docker run --net mynet123 --name um2 -d -it --ip 172.18.0.12 columnstore /bin/bash
