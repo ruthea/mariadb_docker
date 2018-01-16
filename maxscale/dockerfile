@@ -1,6 +1,6 @@
 FROM centos:latest
 RUN yum -y update
-RUN yum -y install wget
+RUN yum -y install wget mysql
 RUN wget https://downloads.mariadb.com/MaxScale/2.1.13/rhel/7/x86_64/maxscale-2.1.13-1.rhel.7.x86_64.rpm
 RUN yum -y install maxscale-2.1.13-1.rhel.7.x86_64.rpm
 COPY maxscale.cnf /etc/maxscale.cnf

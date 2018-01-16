@@ -1,4 +1,4 @@
-maxscale]
+[maxscale]
 threads=4
 
 [Splitter Service]
